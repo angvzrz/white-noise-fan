@@ -20,5 +20,11 @@
 
   <section id="music-carrousel">
     <ion-title>Music for sleeping</ion-title>
+    <swiper [config]="{ slidesPerView: 2, grabCursor: true}">
+      <ng-template swiperSlide><ion-col>Slide 1</ion-col></ng-template>
+      <ng-template swiperSlide><ion-col>Slide 2</ion-col></ng-template>
+      <ng-template swiperSlide><ion-col>Slide 3</ion-col></ng-template>
+      <ng-template swiperSlide><ion-col>Slide 4</ion-col></ng-template>
+    </swiper>
   </section>
 </ion-content>
