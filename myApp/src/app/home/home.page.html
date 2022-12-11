@@ -4,6 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-modal>
+  <header>
+    <h2>Set Timer</h2>
+    <button>X</button>
+  </header>
+  <p>Lets make sounds fade away gradually in:</p>
+</ion-modal>
+
 <ion-content [fullscreen]="true">
   <section id="fan">
     <div id="inner-fan">
@@ -18,13 +26,15 @@
     <button class="sound-button">HIGH</button>
   </section>
 
-  <section id="music-carrousel">
+  <section id="music-carousel">
     <ion-title>Music for sleeping</ion-title>
-    <swiper [config]="{ slidesPerView: 2, grabCursor: true}">
-      <ng-template swiperSlide><ion-col>Slide 1</ion-col></ng-template>
-      <ng-template swiperSlide><ion-col>Slide 2</ion-col></ng-template>
-      <ng-template swiperSlide><ion-col>Slide 3</ion-col></ng-template>
-      <ng-template swiperSlide><ion-col>Slide 4</ion-col></ng-template>
+    <swiper
+      [config]="{ slidesPerView: 2, grabCursor: true, height: 200, spaceBetween: 15}"
+    >
+      <ng-template swiperSlide>Slide 1</ng-template>
+      <ng-template swiperSlide>Slide 2</ng-template>
+      <ng-template swiperSlide>Slide 3</ng-template>
+      <ng-template swiperSlide>Slide 4</ng-template>
     </swiper>
   </section>
 </ion-content>

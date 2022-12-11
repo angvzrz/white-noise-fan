@@ -30,7 +30,7 @@
   flex-grow: 1;
 }
 
-#music-carrousel {
+#music-carousel {
   background-color: rgb(102, 118, 195);
   height: 200px;
 
@@ -39,16 +39,9 @@
     background-color: rgb(31, 31, 31);
   }
 
-  ion-slides {
-    border: 3px solid #ff6d00;
-    width: 50%;
-  }
-
-  #music-options {
-    display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
-
+  .swiper-slide {
+    background-color: lightgreen;
+    
   }
 }
 
