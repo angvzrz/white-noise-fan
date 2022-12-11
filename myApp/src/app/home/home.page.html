@@ -14,15 +14,15 @@
 <ion-content [fullscreen]="true">
   <section id="fan">
     <div id="inner-fan">
-      <div class="ceiling-fan"></div>
+      <div [id]="speed" class="ceiling-fan"></div>
     </div>
   </section>
 
   <section id="sound-levels">
-    <button class="sound-button">OFF</button>
-    <button class="sound-button">LOW</button>
-    <button class="sound-button">MED</button>
-    <button class="sound-button">HIGH</button>
+    <button class="sound-button" (click)="setFan('off')">OFF</button>
+    <button class="sound-button" (click)="setFan('low')">LOW</button>
+    <button class="sound-button" (click)="setFan('med')">MED</button>
+    <button class="sound-button" (click)="setFan('high')">HIGH</button>
   </section>
 
   <section id="music-carousel">

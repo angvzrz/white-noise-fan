@@ -14,6 +14,7 @@
     height: 200px;
     width: 200px;
     border: 5px solid white;
+    z-index: 1;
   }
 }
 
@@ -21,27 +22,22 @@
   background-color: rgb(0, 48, 58);
   height: 100px;
   display: flex;
-  
 }
 
 .sound-button {
   margin: 2em 1em;
   border-radius: 5px;
   flex-grow: 1;
+  z-index: 2;
 }
 
 #music-carousel {
-  background-color: rgb(102, 118, 195);
-  height: 200px;
-
-  ion-title {
-    min-height: 56px;
-    background-color: rgb(31, 31, 31);
-  }
-
+  margin: 0 5%;
   .swiper-slide {
-    background-color: lightgreen;
-    
+    background-color: gray;
+    height: 100px;
+    border-radius: 5%;
+    width: 30vh !important;
   }
 }
 
@@ -53,6 +49,7 @@
   margin: 82px;
   position: relative;
   transform-origin: center;
+  z-index: 2;
 }
 .ceiling-fan::before {
   content: "";
@@ -91,7 +88,21 @@
   border-radius: 50%;
   position: relative;
   transform-origin: center;
-  animation: spin 0.5s linear infinite;
+}
+#off {
+  animation: spin 8.5s linear;
+}
+
+#low {
+  animation: spin 1.5s linear infinite;
+}
+
+#med {
+  animation: spin 1.1s linear infinite;
+}
+
+#high {
+  animation: spin 0.8s linear infinite;
 }
 .ceiling-fan::before {
   content: "";
