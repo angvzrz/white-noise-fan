@@ -39,7 +39,13 @@
     background-color: rgb(31, 31, 31);
   }
 
+  swiper {
+    margin-top: 1em;
+    height: 6em;
+  }
+
   .swiper-slide {
+    border-radius: 5px;
     background-color: lightgreen;
     
   }
