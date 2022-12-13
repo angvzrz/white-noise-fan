@@ -4,14 +4,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-modal trigger="open-modal">
-  <header>
-    <h2>Set Timer <button>X</button></h2>
-  </header>
-  <p>Lets make sounds fade away gradually in:</p>
-</ion-modal>
-
 <ion-content [fullscreen]="true">
+  <ion-modal id="timer-modal" trigger="open-modal">
+    <ng-template>
+      <header>
+        <ion-title>Set Timer <button>X</button></ion-title>
+      </header>
+      <ion-content>
+        <p>Lets make sounds fade away gradually in:</p>
+      </ion-content>
+      <button id="set-timer-button">Set</button>
+    </ng-template>
+  </ion-modal>
+
   <section id="fan">
     <div id="inner-fan">
       <div [id]="speed" class="ceiling-fan"></div>
@@ -38,5 +43,4 @@
   </section>
 </ion-content>
 
-<section id="ads-banner">
-</section>
+<section id="ads-banner"></section>
