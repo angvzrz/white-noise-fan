@@ -17,9 +17,8 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
   encapsulation: ViewEncapsulation.None,
 })
 export class HomePage {
-  
   speed: string | undefined;
-  
+
   constructor() {}
 
   setFan(speed: string) {
