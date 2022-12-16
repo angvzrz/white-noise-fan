@@ -1,23 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Set Timer <button id="open-modal">O</button></ion-title>
+    <ion-title>Set Timer <button id="open-modal" (click)="showModal(true)">O</button></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-modal id="timer-modal" trigger="open-modal">
+  <ion-modal id="timer-modal" [isOpen]="isModalOpen">
     <ng-template>
       <header>
-        <ion-title>Set Timer <button>X</button></ion-title>
+        <ion-title>Set Timer <button (click)="showModal(false)">X</button></ion-title>
       </header>
-      <ion-content>
+      <section id="modal-content">
         <p>Lets make sounds fade away gradually in:</p>
         <div>
           <div id=""><span>hours</span><span>:</span><span>minutes</span></div>
-          <ion-datetime presentation="time"></ion-datetime>
         </div>
+        <ion-datetime presentation="time"></ion-datetime>
         <p>Time to shutdown:</p>
-      </ion-content>
+      </section>
       <button id="set-timer-button">Set</button>
     </ng-template>
   </ion-modal>

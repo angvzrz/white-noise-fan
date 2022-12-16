@@ -18,10 +18,15 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 })
 export class HomePage {
   speed: string | undefined;
+  isModalOpen = false;
 
   constructor() {}
 
   setFan(speed: string) {
     this.speed = speed;
+  }
+
+  showModal(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 }

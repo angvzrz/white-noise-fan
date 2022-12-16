@@ -10,24 +10,28 @@
 
   .ion-page {
     margin: 8em 2em;
-    height: 24em;
+    height: 30em;
     background-color: rgba(0, 48, 58, 0.822);
     border-radius: 15px 15px 0 0;
+    display: block;
   }
   
-  ion-content {
+  #modal-content {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
     --background: none;
     --padding-start: 2em;
     --padding-end: 2em;
     --padding-top: 1em;
   }
 
-  .time-container {
-    width: 50%;
-  }
-
   ion-datetime {
-    height: auto;
+  
     --background: none;
   }
 
