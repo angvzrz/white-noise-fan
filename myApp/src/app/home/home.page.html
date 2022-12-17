@@ -11,12 +11,12 @@
         <ion-title>Set Timer <button (click)="showModal(false)">X</button></ion-title>
       </header>
       <section id="modal-content">
-        <p>Lets make sounds fade away gradually in:</p>
+        <span style="font-size: large; text-align: center;">Lets make sounds fade away gradually in:</span>
         <div>
           <div id=""><span>hours</span><span>:</span><span>minutes</span></div>
         </div>
-        <ion-datetime presentation="time"></ion-datetime>
-        <p>Time to shutdown:</p>
+        <ion-datetime #datetime presentation="time" (ionChange)="timeChanged(datetime.value)"></ion-datetime>
+        <span>Time to shutdown: {{shutdownTime}}</span>
       </section>
       <button id="set-timer-button">Set</button>
     </ng-template>

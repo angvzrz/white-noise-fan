@@ -18,7 +18,8 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 })
 export class HomePage {
   speed: string | undefined;
-  isModalOpen = false;
+  isModalOpen: boolean = false;
+  shutdownTime: string = '';
 
   constructor() {}
 
@@ -28,5 +29,29 @@ export class HomePage {
 
   showModal(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  timeChanged(dateTime: any) {
+    const pickerDate = new Date(dateTime);
+    const pickerTime =
+      pickerDate.getHours() * 60 * 60 * 1000 +
+      pickerDate.getMinutes() * 60 * 1000;
+    const currentTime: number = new Date().getTime();
+    const shutdownDate = new Date(pickerTime + currentTime);
+    let midday: string = '';
+    let shutdownHour = shutdownDate.getHours();
+
+    if (shutdownDate.getHours() > 11) {
+      midday = 'pm';
+      shutdownHour -= 12;
+    } else {
+      midday = 'am';
+    }
+
+    this.shutdownTime = `${shutdownHour}:${shutdownDate.getMinutes()} ${midday}`;
+  }
+
+  setTimer() {
+    this.showModal(false);
   }
 }
