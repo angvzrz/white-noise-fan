@@ -57,6 +57,10 @@ export class HomePage {
     this.time.next(timerFormat);
 
     --this.timer;
+
+    if (this.timer < 0) {
+      this.time.complete();
+    }
   }
 
   showModal(isOpen: boolean) {
