@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Set Timer <button id="open-modal" (click)="showModal(true)">O</button></ion-title>
+    <ion-title
+      >{{time | async}}
+      <button id="open-modal" (click)="showModal(true)">O</button></ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
@@ -8,17 +11,24 @@
   <ion-modal id="timer-modal" [isOpen]="isModalOpen">
     <ng-template>
       <header>
-        <ion-title>Set Timer <button (click)="showModal(false)">X</button></ion-title>
+        <ion-title
+          >Set Timer <button (click)="showModal(false)">X</button></ion-title
+        >
       </header>
       <section id="modal-content">
-        <span style="font-size: large; text-align: center;">Lets make sounds fade away gradually in:</span>
-        <div>
-          <div id=""><span>hours</span><span>:</span><span>minutes</span></div>
-        </div>
-        <ion-datetime #datetime presentation="time" (ionChange)="timeChanged(datetime.value)"></ion-datetime>
+        <span style="font-size: large; text-align: center"
+          >Lets make sounds fade away gradually in:</span
+        >
+        <span>hours:minutes</span>
+        <ion-datetime
+          #datetime
+          presentation="time"
+          [(ngModel)]="initialDateTime"
+          (ionChange)="timeChanged(datetime.value)"
+        ></ion-datetime>
         <span>Time to shutdown: {{shutdownTime}}</span>
       </section>
-      <button id="set-timer-button">Set</button>
+      <button id="set-timer-button" (click)="startTimer(datetime.value)">Set</button>
     </ng-template>
   </ion-modal>
 

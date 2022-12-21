@@ -17,21 +17,20 @@
   }
   
   #modal-content {
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2em;
-    margin-top: 1em;
     --background: none;
     --padding-start: 2em;
     --padding-end: 2em;
     --padding-top: 1em;
+    padding: 2em 1em 0;
   }
 
   ion-datetime {
-  
+    height: 10em;
     --background: none;
   }
 
