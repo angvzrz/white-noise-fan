@@ -22,8 +22,9 @@ export class HomePage {
   isModalOpen: boolean;
   initialDateTime: string | undefined;
   shutdownTime: string | undefined;
-  time: BehaviorSubject<string> = new BehaviorSubject('Start timer');
+  time: BehaviorSubject<string> = new BehaviorSubject('Set Timer');
   timer: number = 0; // in seconds
+  interval: NodeJS.Timeout | undefined;
 
   constructor() {
     this.isModalOpen = false;
@@ -31,17 +32,26 @@ export class HomePage {
 
   setFan(speed: string) {
     this.speed = speed;
+
+    if (speed === 'off') {
+      this.clearTimer();
+    }
   }
 
   startTimer(dateTime: any) {
     const { hours, minutes } = this.getDateClock(dateTime);
     this.setTimer(hours, minutes);
 
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.updateTime();
     }, 1000);
 
     this.showModal(false);
+  }
+
+  clearTimer() {
+    clearInterval(this.interval);
+    this.time.next('Set Timer');
   }
 
   updateTime() {
@@ -59,6 +69,7 @@ export class HomePage {
     --this.timer;
 
     if (this.timer < 0) {
+      this.clearTimer();
       this.time.complete();
     }
   }
@@ -95,10 +106,7 @@ export class HomePage {
     minutes: number;
   } {
     const date: Date = new Date(dateTime);
-    const hours: number = date.getHours();
-    const minutes: number = date.getMinutes();
-
-    return { hours: hours, minutes: minutes };
+    return { hours: date.getHours(), minutes: date.getMinutes() };
   }
 
   timeChanged(dateTime: any) {
